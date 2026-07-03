@@ -11,9 +11,14 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
+      {/* Thêm compoennt*/}
+      {/*<AITechnology /> 
+        <HowItWorks />*/}
       <Specs />
       <Newsletter />
       <Footer />
+
+      
     </main>
   );
 }
