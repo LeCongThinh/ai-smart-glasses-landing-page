@@ -66,9 +66,17 @@ export default function Hero() {
                     <FeatureCard className="bottom-20 right-2 lg:bottom-28 lg:right-4" icon={<Camera size={20} />} title="Smart" desc="Camera" />
 
                     {/* Product image */}
-                    <div className="group relative z-20 w-full max-w-105 animate-[float_6s_ease-in-out_infinite] transition-transform duration-500 hover:scale-[1.03] sm:max-w-130 lg:max-w-190">
-                        <Image src="/glasses5.png" alt="VisionAI AI Smart Glasses 3D product render" width={980} height={620} priority
-                            className="h-auto w-full select-none drop-shadow-[0_45px_90px_rgba(37,99,235,0.25)] transition-transform duration-700 group-hover:rotate-1" />
+                    <div className="group relative z-20 w-full max-w-[420px] animate-[float_6s_ease-in-out_infinite] transition-transform duration-500 hover:scale-[1.03] sm:max-w-[520px] lg:max-w-[720px]">
+                        <Image
+                            src="/glasses5.webp"
+                            alt="VisionAI AI Smart Glasses 3D product render"
+                            width={720}
+                            height={456}
+                            priority
+                            quality={80}
+                            sizes="(max-width: 640px) 360px, (max-width: 1024px) 520px, 720px"
+                            className="h-auto w-full select-none drop-shadow-[0_35px_70px_rgba(37,99,235,0.22)] transition-transform duration-700 group-hover:rotate-1"
+                        />
 
                         <div className="pointer-events-none absolute left-[48%] top-[34%] h-12 w-20 rounded-full bg-blue-300/20 blur-xl lg:h-20 lg:w-32 lg:blur-2xl" />
                         <div className="pointer-events-none absolute right-[18%] top-[30%] h-8 w-16 rounded-full bg-blue-500/20 blur-lg lg:h-10 lg:w-24 lg:blur-xl" />
