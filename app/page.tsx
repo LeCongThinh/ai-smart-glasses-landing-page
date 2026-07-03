@@ -17,8 +17,6 @@ export default function Home() {
       <Specs />
       <Newsletter />
       <Footer />
-
-      
     </main>
   );
 }
