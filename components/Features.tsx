@@ -44,7 +44,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative overflow-hidden bg-[#faf8ff] px-5 py-20 text-[#131b2e] md:px-16 lg:py-28"
+      className="relative overflow-hidden bg-[#faf8ff] px-5 pt-20 pb-10 md:px-16 lg:pt-28 lg:pb-14"
     >
       <div className="pointer-events-none absolute left-[-10%] top-20 h-105 w-105 rounded-full bg-[#64a8fe]/20 blur-3xl" />
       <div className="pointer-events-none absolute right-[-8%] bottom-10 h-130 w-130 rounded-full bg-[#2563eb]/10 blur-3xl" />
