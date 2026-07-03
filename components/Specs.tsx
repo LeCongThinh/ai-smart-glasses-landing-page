@@ -9,7 +9,6 @@ import {
   AudioLines,
   Zap,
 } from "lucide-react";
-import { style } from "framer-motion/client";
 
 const specs = [
   {
