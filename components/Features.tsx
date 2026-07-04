@@ -44,39 +44,39 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative overflow-hidden bg-[#faf8ff] px-5 pt-20 pb-10 md:px-16 lg:pt-28 lg:pb-14"
+      className="relative overflow-hidden bg-[#faf8ff] px-5 pt-20 pb-10 transition-colors duration-300 dark:bg-[#070b18] md:px-16 lg:pt-28 lg:pb-14"
     >
       <div className="pointer-events-none absolute left-[-10%] top-20 h-105 w-105 rounded-full bg-[#64a8fe]/20 blur-3xl" />
       <div className="pointer-events-none absolute right-[-8%] bottom-10 h-130 w-130 rounded-full bg-[#2563eb]/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center rounded-full border border-white/70 bg-white/70 px-5 py-2 text-sm font-semibold text-[#2563eb] shadow-[0_20px_50px_rgba(37,99,235,0.08)] backdrop-blur-2xl">
+        <div data-reveal className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center rounded-full border border-white/70 bg-white/70 px-5 py-2 text-sm font-semibold text-[#2563eb] shadow-[0_20px_50px_rgba(37,99,235,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/5 dark:text-blue-400">
             AI-Powered Features
           </div>
 
           <h2 className="mt-6 text-[32px] font-semibold leading-[1.15] tracking-[-0.02em] md:text-[40px] lg:text-[56px]">
             <span className="text-[#2563eb]">Powerful AI.</span>
             <br />
-            <span className="text-[#131b2e]">Seamlessly</span>{' '}
+            <span className="text-[#131b2e] dark:text-white">Seamlessly</span>{' '}
             <span className="text-[#2563eb]">Integrated.</span>
           </h2>
 
-          <p className="mt-5 text-base leading-[1.6] text-[#434655] md:text-lg">
+          <p className="mt-5 text-base leading-[1.6] text-[#434655] dark:text-slate-300 md:text-lg">
             VisionAI brings intelligent assistance, spatial awareness, and
             real-time information into a lightweight wearable experience.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-3 md:grid-cols-2 lg:gap-5 lg:grid-cols-3">
+        <div data-stagger className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {features.map((feature) => {
             const Icon = feature.icon;
 
             return (
               <div
+                data-reveal
                 key={feature.title}
-                className="group relative overflow-hidden rounded-[20px] border border-white/70 bg-white/70 p-4 shadow-[0_20px_50px_rgba(37,99,235,0.08)] 
-                backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(37,99,235,0.15)] lg:rounded-3xl lg:p-6">
+                className="group relative overflow-hidden rounded-[20px] border border-white/70 bg-white/70 p-4 shadow-[0_20px_50px_rgba(37,99,235,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(37,99,235,0.15)] dark:border-white/10 dark:bg-white/5 lg:rounded-3xl lg:p-6">
 
                 <div className="pointer-events-none absolute right-0 top-0 h-20 w-20 rounded-full bg-[#2563eb]/10 blur-2xl" />
 
@@ -85,8 +85,8 @@ export default function Features() {
                     <Icon size={22} />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-base font-semibold text-[#131b2e] lg:text-xl">{feature.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-[#434655] lg:mt-3 lg:text-base">{feature.desc}</p>
+                    <h3 className="text-base font-semibold text-[#131b2e] dark:text-white lg:text-xl">{feature.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-[#434655] dark:text-slate-400 lg:mt-3 lg:text-base">{feature.desc}</p>
                     <div className="mt-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#2563eb] lg:mt-5">VisionAI Intelligence</div>
                   </div>
                 </div>

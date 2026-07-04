@@ -62,7 +62,7 @@ export default function Specs() {
     <section
       id="specs"
       aria-labelledby="specs-heading"
-      className="relative isolate overflow-hidden bg-[#faf8ff] py-16 sm:py-20 lg:py-24"
+      className="relative isolate overflow-hidden bg-[#faf8ff] py-16 transition-colors duration-300 dark:bg-[#070b18] sm:py-20 lg:py-24"
     >
       <div
         aria-hidden="true"
@@ -74,25 +74,25 @@ export default function Specs() {
       />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <header className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-blue-600 shadow-sm backdrop-blur-xl">
+        <header data-reveal className="mx-auto max-w-3xl text-center">
+          <p className="inline-flex rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-blue-600 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-blue-400">
             BUILT FOR THE FUTURE
           </p>
           <h2
             id="specs-heading"
-            className="mt-5 text-balance text-4xl font-bold tracking-tight text-[#131b2e] sm:text-5xl lg:text-[3.25rem]"
+            className="mt-5 text-balance text-4xl font-bold tracking-tight text-[#131b2e] dark:text-white sm:text-5xl lg:text-[3.25rem]"
           >
             <span className="text-blue-600">VisionAI</span> smart glasses specifications
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-[#565b6b] sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-[#565b6b] dark:text-slate-300 sm:text-lg">
             Engineered for lightweight comfort, all-day intelligence and seamless spatial computing.
           </p>
         </header>
 
         <div className="mt-10 grid gap-5 lg:mt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
-          <figure className="relative flex min-h-80 flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur-2xl sm:min-h-107.5 sm:p-7">
+          <figure data-reveal="left" className="relative flex min-h-80 flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/5 sm:min-h-107.5 sm:p-7">
             <div aria-hidden="true" className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl sm:h-96 sm:w-96" />
-            <div className="relative flex flex-1 items-center justify-center">
+            <div data-parallax="0.035" className="relative flex flex-1 items-center justify-center">
               <Image
                 src={glassesImage}
                 alt="VisionAI lightweight AI smart glasses in black"
@@ -101,7 +101,7 @@ export default function Specs() {
                 className="h-auto w-full max-w-160 object-contain motion-safe:animate-float"
               />
             </div>
-            <figcaption className="relative grid grid-cols-3 divide-x divide-blue-100 rounded-2xl border border-white/80 bg-white/80 px-2 py-4 shadow-sm backdrop-blur-xl sm:px-5">
+            <figcaption className="relative grid grid-cols-3 divide-x divide-blue-100 rounded-2xl border border-white/80 bg-white/80 px-2 py-4 shadow-sm backdrop-blur-xl dark:divide-white/10 dark:border-white/10 dark:bg-slate-900/70 sm:px-5">
               <QuickFact label="Weight" value="42g" />
               <QuickFact label="Battery" value="18 hours" />
               <QuickFact label="Chip" value="Neural Core" />
@@ -110,18 +110,20 @@ export default function Specs() {
 
           <dl
             aria-label="VisionAI technical specifications"
+            data-stagger
             className="grid self-start grid-cols-2 auto-rows-max gap-3"
           >
             {specs.map(({ icon: Icon, label, value }) => (
               <div
+                data-reveal
                 key={label}
-                className="group min-h-28 rounded-[20px] border border-white/80 bg-white/75 p-3.5 shadow-[0_12px_30px_rgba(37,99,235,0.07)] backdrop-blur-2xl transition duration-300 motion-safe:hover:-translate-y-0.5 sm:flex sm:min-h-0 sm:items-center sm:gap-3 sm:p-3.5"
+                className="group min-h-28 rounded-[20px] border border-white/80 bg-white/75 p-3.5 shadow-[0_12px_30px_rgba(37,99,235,0.07)] backdrop-blur-2xl transition duration-300 motion-safe:hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5 sm:flex sm:min-h-0 sm:items-center sm:gap-3 sm:p-3.5"
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-[0_8px_20px_rgba(37,99,235,0.10)] sm:h-10 sm:w-10">
                   <Icon aria-hidden="true" size={19} strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <dt className="mt-3 text-xs leading-none text-[#656979] sm:mt-0">{label}</dt>
+                  <dt className="mt-3 text-xs leading-none text-[#656979] dark:text-slate-400 sm:mt-0">{label}</dt>
                   <dd className="mt-1.5 text-sm font-bold leading-tight text-blue-600 sm:text-[0.95rem]">
                     {value}
                   </dd>
@@ -131,11 +133,12 @@ export default function Specs() {
           </dl>
         </div>
 
-        <div className="mt-5 grid gap-5 md:grid-cols-2 lg:mt-6 lg:gap-6">
+        <div data-stagger className="mt-5 grid gap-5 md:grid-cols-2 lg:mt-6 lg:gap-6">
           {productDetails.map((detail) => (
             <figure
+              data-reveal
               key={detail.title}
-              className="group overflow-hidden rounded-[28px] border border-white/80 bg-white/70 shadow-[0_20px_60px_rgba(37,99,235,0.08)] backdrop-blur-2xl"
+              className="group overflow-hidden rounded-[28px] border border-white/80 bg-white/70 shadow-[0_20px_60px_rgba(37,99,235,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/5"
             >
               <div className="relative aspect-16/10 overflow-hidden bg-linear-to-br from-blue-50 to-white">
                 <Image
@@ -149,8 +152,8 @@ export default function Specs() {
               </div>
               <figcaption className="p-5 sm:p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">{detail.eyebrow}</p>
-                <h3 className="mt-2 text-xl font-bold text-[#131b2e] sm:text-2xl">{detail.title}</h3>
-                <p className="mt-2 max-w-xl text-sm leading-6 text-[#565b6b] sm:text-base">{detail.description}</p>
+                <h3 className="mt-2 text-xl font-bold text-[#131b2e] dark:text-white sm:text-2xl">{detail.title}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-[#565b6b] dark:text-slate-400 sm:text-base">{detail.description}</p>
               </figcaption>
             </figure>
           ))}

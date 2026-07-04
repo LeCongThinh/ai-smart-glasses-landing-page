@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /**
  * VisionAI Header Component
@@ -23,15 +24,14 @@ export default function Header() {
     const navLinks = [
         { name: "Features", href: "#features" },
         { name: "Specifications", href: "#specs" },
-        { name: "AI Technology", href: "#ai-tech" },
-        { name: "FAQs", href: "#faqs" },
+        { name: "Updates", href: "#newsletter" },
     ];
 
     return (
         <header
             className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
-                ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-100"
-                : "bg-white border-b border-transparent"
+                ? "border-b border-slate-100 bg-white/80 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-[#070b18]/85"
+                : "border-b border-transparent bg-white dark:bg-[#070b18]"
                 }`}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8" aria-label="Global Navigation">
@@ -39,7 +39,7 @@ export default function Header() {
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2 group">
                         <span className="sr-only">VisionAI</span>
-                        <div className="flex items-center text-2xl font-extrabold tracking-tight text-slate-900">
+                        <div className="flex items-center text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                             <svg
                                 className="h-8 w-8 text-blue-600 mr-2 transition-transform group-hover:rotate-12"
                                 fill="none"
@@ -61,7 +61,7 @@ export default function Header() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-semibold leading-6 text-slate-600 transition-colors hover:text-blue-600"
+                            className="text-sm font-semibold leading-6 text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
                         >
                             {link.name}
                         </Link>
@@ -69,20 +69,23 @@ export default function Header() {
                 </div>
 
                 {/* DESKTOP CTA */}
-                <div className="hidden md:flex md:flex-1 md:justify-end">
+                <div className="hidden items-center gap-3 md:flex md:flex-1 md:justify-end">
+                    <ThemeToggle />
                     <Link
-                        href="#pre-order"
+                        href="#newsletter"
+                        data-engagement="header-early-access"
                         className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-md shadow-blue-600/20 transition-all hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 active:scale-95"
                     >
-                        Pre-order
+                        Early access
                     </Link>
                 </div>
 
                 {/* MOBILE MENU BUTTON (Cải tiến tâm xoay chuẩn 100%) */}
-                <div className="flex md:hidden">
+                <div className="flex items-center gap-2 md:hidden">
+                    <ThemeToggle />
                     <button
                         type="button"
-                        className="relative flex h-10 w-10 flex-col items-center justify-center rounded-full text-blue-600 hover:bg-slate-50 transition-colors"
+                        className="relative flex h-10 w-10 flex-col items-center justify-center rounded-full text-blue-600 transition-colors hover:bg-slate-50 dark:hover:bg-white/5"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-expanded={isOpen}
                     >
@@ -105,7 +108,7 @@ export default function Header() {
 
             {/* MOBILE MENU PANEL (Cải tiến bo góc dưới, bóng đổ trượt mượt mà) */}
             <div
-                className={`absolute left-0 right-0 bg-white border-b border-slate-100 shadow-xl shadow-slate-200/50 rounded-b-2xl transition-all duration-300 ease-in-out md:hidden overflow-hidden ${isOpen
+                className={`absolute left-0 right-0 overflow-hidden rounded-b-2xl border-b border-slate-100 bg-white shadow-xl shadow-slate-200/50 transition-all duration-300 ease-in-out dark:border-white/10 dark:bg-[#0b1124] dark:shadow-black/30 md:hidden ${isOpen
                     ? "max-h-100 opacity-100 translate-y-0"
                     : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"
                     }`}
@@ -116,18 +119,19 @@ export default function Header() {
                             key={link.name}
                             href={link.href}
                             onClick={() => setIsOpen(false)}
-                            className="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-blue-600"
+                            className="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-blue-600 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-blue-400"
                         >
                             {link.name}
                         </Link>
                     ))}
-                    <div className="mt-4 pt-4 border-t border-slate-100">
+                    <div className="mt-4 border-t border-slate-100 pt-4 dark:border-white/10">
                         <Link
-                            href="#pre-order"
+                            href="#newsletter"
+                            data-engagement="mobile-early-access"
                             onClick={() => setIsOpen(false)}
                             className="block w-full rounded-full bg-blue-600 py-3.5 text-center text-base font-bold text-white shadow-lg shadow-blue-600/10 transition-colors hover:bg-blue-500"
                         >
-                            Pre-order Now
+                            Get Early Access
                         </Link>
                     </div>
                 </div>
