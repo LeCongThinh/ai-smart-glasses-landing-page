@@ -19,7 +19,10 @@ export default function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="bg-[#faf8ff] px-5 py-12 md:px-8 lg:py-20">
+    <section
+      id="newsletter"
+      className="bg-[#faf8ff] px-5 pb-12 pt-6 md:px-8 lg:pb-20 lg:pt-10"
+    >
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-[#101a35] px-6 py-12 shadow-[0_30px_90px_rgba(37,99,235,0.18)] sm:px-10 md:rounded-[40px] lg:px-16 lg:py-18">
         <div className="pointer-events-none absolute -right-28 -top-36 h-96 w-96 rounded-full bg-blue-500/30 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-48 left-1/3 h-96 w-96 rounded-full bg-cyan-400/15 blur-3xl" />
