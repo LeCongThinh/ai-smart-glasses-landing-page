@@ -84,7 +84,7 @@ export default function Footer() {
                     className="group flex items-start gap-3 text-sm leading-6 text-slate-400 transition-colors hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
                   >
                     <Icon aria-hidden="true" className="mt-0.5 shrink-0 text-blue-400" size={17} />
-                    <span className="min-w-0 [overflow-wrap:anywhere]">{label}</span>
+                    <span className="min-w-0 wrap-anywhere">{label}</span>
                   </a>
                 </li>
               ))}
