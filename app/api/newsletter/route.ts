@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     return Response.json({ message: "Subscription received." });
   }
 
-  const webhookUrl = process.env.NEWSLETTER_WEBHOOK_URL;
+  const webhookUrl = process.env.MAKE_NEWSLETTER_WEBHOOK_URL;
   if (!webhookUrl) {
     return Response.json(
       { message: "Newsletter service is not configured yet." },
@@ -62,8 +62,8 @@ export async function POST(request: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...(process.env.NEWSLETTER_WEBHOOK_SECRET
-          ? { Authorization: `Bearer ${process.env.NEWSLETTER_WEBHOOK_SECRET}` }
+        ...(process.env.MAKE_WEBHOOK_API_KEY
+          ? { "x-make-apikey": process.env.MAKE_WEBHOOK_API_KEY }
           : {}),
       },
       body: JSON.stringify({
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
 
     return Response.json({ message: "You’re on the list. Welcome to VisionAI." });
   } catch (error) {
-    console.error("Newsletter webhook failed", error);
+    console.error("Make newsletter webhook failed", error);
     return Response.json(
       { message: "We couldn’t save your email right now. Please try again." },
       { status: 502 },
