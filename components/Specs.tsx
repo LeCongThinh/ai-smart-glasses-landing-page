@@ -1,55 +1,59 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import {
-  Feather,
+  AudioLines,
   Battery,
   Camera,
   Cpu,
+  Feather,
   Monitor,
   Wifi,
-  AudioLines,
   Zap,
+  type LucideIcon,
 } from "lucide-react";
 
-const specs = [
+import glassesImage from "@/public/glasses5.webp";
+import explodedImage from "@/public/visionai-exploded.png";
+import macroImage from "@/public/visionai-macro.png";
+
+type Spec = {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+};
+
+const specs: Spec[] = [
+  { icon: Feather, label: "Weight", value: "42g" },
+  { icon: Battery, label: "Battery Life", value: "18 Hours" },
+  { icon: Monitor, label: "Display", value: "Micro OLED" },
+  { icon: Camera, label: "Camera", value: "12MP Ultra-wide" },
+  { icon: AudioLines, label: "Audio", value: "Open-ear Spatial Audio" },
+  { icon: Wifi, label: "Connectivity", value: "Wi-Fi 6 / Bluetooth 5.3" },
+  { icon: Cpu, label: "Chipset", value: "VisionAI Neural Core" },
+  { icon: Zap, label: "Charging", value: "USB-C Fast Charge" },
+];
+
+const productDetails: Array<{
+  image: StaticImageData;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  imageClassName?: string;
+}> = [
   {
-    icon: Feather,
-    label: "Weight",
-    value: "42g",
+    image: macroImage,
+    alt: "Macro view of the camera and sensor system built into VisionAI smart glasses",
+    eyebrow: "Precision optics",
+    title: "See every detail",
+    description: "A discreet 12MP ultra-wide camera built for natural, hands-free capture.",
   },
   {
-    icon: Battery,
-    label: "Battery Life",
-    value: "18 Hours",
-  },
-  {
-    icon: Monitor,
-    label: "Display",
-    value: "Micro OLED",
-  },
-  {
-    icon: Camera,
-    label: "Camera",
-    value: "12MP Ultra-wide",
-  },
-  {
-    icon: AudioLines,
-    label: "Audio",
-    value: "Open-ear Spatial Audio",
-  },
-  {
-    icon: Wifi,
-    label: "Connectivity",
-    value: "Wi-Fi 6 / Bluetooth 5.3",
-  },
-  {
-    icon: Cpu,
-    label: "Chipset",
-    value: "VisionAI Neural Core",
-  },
-  {
-    icon: Zap,
-    label: "Charging",
-    value: "USB-C Fast Charge",
+    image: explodedImage,
+    alt: "Exploded view showing the internal components of VisionAI smart glasses",
+    eyebrow: "Inside VisionAI",
+    title: "Engineered as one",
+    description: "Display, audio, battery and neural processing in one balanced frame.",
+    imageClassName: "object-contain p-3 sm:p-5",
   },
 ];
 
@@ -57,177 +61,110 @@ export default function Specs() {
   return (
     <section
       id="specs"
-      className="relative overflow-hidden bg-[#faf8ff] py-12 lg:py-16"
+      aria-labelledby="specs-heading"
+      className="relative isolate overflow-hidden bg-[#faf8ff] py-16 sm:py-20 lg:py-24"
     >
-      {/* Blur Background */}
-      <div className="absolute left-0 top-40 h-72 w-72 rounded-full bg-blue-300/10 blur-3xl" />
-      <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
+      <div
+        aria-hidden="true"
+        className="absolute -left-32 top-44 -z-10 h-80 w-80 rounded-full bg-blue-300/15 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -right-28 top-10 -z-10 h-80 w-80 rounded-full bg-blue-400/15 blur-3xl"
+      />
 
-      <div className="mx-auto max-w-7xl px-5">
-        {/* Header */}
-        <div className="text-center">
-          <div className="inline-flex items-center rounded-full border border-blue-100 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wider text-[#2563eb] backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <header className="mx-auto max-w-3xl text-center">
+          <p className="inline-flex rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-blue-600 shadow-sm backdrop-blur-xl">
             BUILT FOR THE FUTURE
-          </div>
-
-          <h2 className="mt-5 text-[34px] font-bold lg:text-[52px]">
-            <span className="text-[#2563eb]">VisionAI</span>{" "}
-            <span className="text-[#131b2e]">Tech Specs</span>
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#434655] lg:text-lg">
-            Engineered for lightweight comfort, all-day intelligence and
-            seamless spatial computing.
           </p>
-        </div>
+          <h2
+            id="specs-heading"
+            className="mt-5 text-balance text-4xl font-bold tracking-tight text-[#131b2e] sm:text-5xl lg:text-[3.25rem]"
+          >
+            <span className="text-blue-600">VisionAI</span> smart glasses specifications
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-[#565b6b] sm:text-lg">
+            Engineered for lightweight comfort, all-day intelligence and seamless spatial computing.
+          </p>
+        </header>
 
-        {/* Desktop Layout */}
-        <div className="mt-10 hidden gap-6 lg:grid lg:grid-cols-[1.05fr_0.95fr]">
-          {/* Product Side */}
-          <div className="relative overflow-hidden rounded-[28px] border border-white/70 bg-white/60 p-6 backdrop-blur-[24px]">
-            {/* Halo */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-[380px] w-[380px] rounded-full border border-white/60 bg-gradient-to-b from-blue-100/40 to-transparent" />
-            </div>
-
-            {/* Glasses */}
-            <div className="relative z-20 flex justify-center">
+        <div className="mt-10 grid gap-5 lg:mt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+          <figure className="relative flex min-h-[320px] flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur-2xl sm:min-h-[430px] sm:p-7">
+            <div aria-hidden="true" className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl sm:h-96 sm:w-96" />
+            <div className="relative flex flex-1 items-center justify-center">
               <Image
-                src="/glasses5.png"
-                alt="VisionAI Smart Glasses"
-                width={560}
-                height={360}
-                className="object-contain animate-float"
+                src={glassesImage}
+                alt="VisionAI lightweight AI smart glasses in black"
+                sizes="(max-width: 1023px) 90vw, 48vw"
+                placeholder="blur"
+                className="h-auto w-full max-w-[640px] object-contain motion-safe:animate-float"
               />
             </div>
+            <figcaption className="relative grid grid-cols-3 divide-x divide-blue-100 rounded-2xl border border-white/80 bg-white/80 px-2 py-4 shadow-sm backdrop-blur-xl sm:px-5">
+              <QuickFact label="Weight" value="42g" />
+              <QuickFact label="Battery" value="18 hours" />
+              <QuickFact label="Chip" value="Neural Core" />
+            </figcaption>
+          </figure>
 
-            {/* Platform */}
-            <div className="relative mx-auto mt-2 h-20 w-[75%]">
-              <div className="absolute bottom-0 h-14 w-full rounded-full bg-blue-200/20 blur-xl" />
-
-              <div className="absolute bottom-4 h-6 w-full rounded-full border border-white/70 bg-white/70 backdrop-blur-xl" />
-
-              <div className="absolute bottom-5 left-1/2 h-2 w-[65%] -translate-x-1/2 rounded-full bg-[#2563eb]/30 blur-md" />
-            </div>
-
-            {/* Highlights */}
-            <div className="mt-6 flex justify-center gap-8 rounded-3xl border border-white/70 bg-white/70 px-6 py-4 backdrop-blur-xl">
-              <Info title="Weight" value="42g" />
-              <Info title="Battery" value="18 Hours" />
-              <Info title="Chip" value="Neural Core" />
-            </div>
-          </div>
-
-          {/* Specs Grid */}
-          <div className="grid grid-cols-2 gap-3">
-            {specs.map((spec) => {
-              const Icon = spec.icon;
-
-              return (
-                <div
-                  key={spec.label}
-                  className="group rounded-[22px] border border-white/70 bg-white/70 p-4 shadow-[0_14px_35px_rgba(37,99,235,0.07)] backdrop-blur-[24px] transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-[#2563eb]">
-                    <Icon size={22} />
-                  </div>
-
-                  <p className="mt-4 text-sm text-[#434655]">
-                    {spec.label}
-                  </p>
-
-                  <h3 className="mt-1 text-lg font-bold text-[#2563eb]">
-                    {spec.value}
-                  </h3>
+          <dl
+            aria-label="VisionAI technical specifications"
+            className="grid self-start grid-cols-2 auto-rows-max gap-3"
+          >
+            {specs.map(({ icon: Icon, label, value }) => (
+              <div
+                key={label}
+                className="group min-h-[112px] rounded-[20px] border border-white/80 bg-white/75 p-3.5 shadow-[0_12px_30px_rgba(37,99,235,0.07)] backdrop-blur-2xl transition duration-300 motion-safe:hover:-translate-y-0.5 sm:flex sm:min-h-0 sm:items-center sm:gap-3 sm:p-3.5"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-[0_8px_20px_rgba(37,99,235,0.10)] sm:h-10 sm:w-10">
+                  <Icon aria-hidden="true" size={19} strokeWidth={1.8} />
                 </div>
-              );
-            })}
-          </div>
+                <div className="min-w-0">
+                  <dt className="mt-3 text-xs leading-none text-[#656979] sm:mt-0">{label}</dt>
+                  <dd className="mt-1.5 text-sm font-bold leading-tight text-blue-600 sm:text-[0.95rem]">
+                    {value}
+                  </dd>
+                </div>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        {/* Mobile Layout */}
-        {/* Mobile Layout */}
-        <div className="mt-8 lg:hidden">
-          {/* Product Card */}
-          <div className="rounded-[28px] border border-white/70 bg-white/60 p-5 backdrop-blur-[24px]">
-            <div className="flex justify-center">
-              <Image
-                src="/glasses5.png"
-                alt="VisionAI"
-                width={320}
-                height={200}
-                className="object-contain animate-float"
-              />
-            </div>
-          </div>
-
-          {/* Specs Grid Mobile */}
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            {specs.map((spec) => {
-              const Icon = spec.icon;
-
-              return (
-                <div
-                  key={spec.label}
-                  className="
-            rounded-[20px]
-            border
-            border-white/80
-            bg-white/80
-            p-3
-            shadow-[0_14px_35px_rgba(37,99,235,0.14)]
-            backdrop-blur-xl
-          "
-                >
-                  <div
-                    className="
-              flex
-              h-9
-              w-9
-              items-center
-              justify-center
-              rounded-xl
-              bg-blue-50
-              text-[#2563eb]
-              shadow-[0_8px_20px_rgba(37,99,235,0.16)]
-            "
-                  >
-                    <Icon size={18} />
-                  </div>
-
-                  <p className="mt-3 text-xs text-[#434655]">
-                    {spec.label}
-                  </p>
-
-                  <h3 className="mt-1 text-sm font-bold leading-tight text-[#2563eb]">
-                    {spec.value}
-                  </h3>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-5 grid gap-5 md:grid-cols-2 lg:mt-6 lg:gap-6">
+          {productDetails.map((detail) => (
+            <figure
+              key={detail.title}
+              className="group overflow-hidden rounded-[28px] border border-white/80 bg-white/70 shadow-[0_20px_60px_rgba(37,99,235,0.08)] backdrop-blur-2xl"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-blue-50 to-white">
+                <Image
+                  src={detail.image}
+                  alt={detail.alt}
+                  fill
+                  sizes="(max-width: 767px) 90vw, 45vw"
+                  placeholder="blur"
+                  className={`transition-transform duration-500 motion-safe:group-hover:scale-[1.03] ${detail.imageClassName ?? "object-cover"}`}
+                />
+              </div>
+              <figcaption className="p-5 sm:p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">{detail.eyebrow}</p>
+                <h3 className="mt-2 text-xl font-bold text-[#131b2e] sm:text-2xl">{detail.title}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-[#565b6b] sm:text-base">{detail.description}</p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
-
     </section>
-
   );
-
 }
 
-function Info({
-  title,
-  value,
-}: {
-  title: string;
-  value: string;
-}) {
+function QuickFact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="text-center">
-      <p className="text-xs text-[#434655]">{title}</p>
-      <p className="mt-1 text-sm font-semibold text-[#2563eb]">
-        {value}
-      </p>
-    </div>
+    <span className="px-2 text-center">
+      <span className="block text-[0.65rem] text-[#656979] sm:text-xs">{label}</span>
+      <span className="mt-1 block text-xs font-semibold text-blue-600 sm:text-sm">{value}</span>
+    </span>
   );
 }
