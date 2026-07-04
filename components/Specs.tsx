@@ -90,7 +90,7 @@ export default function Specs() {
         </header>
 
         <div className="mt-10 grid gap-5 lg:mt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
-          <figure className="relative flex min-h-[320px] flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur-2xl sm:min-h-[430px] sm:p-7">
+          <figure className="relative flex min-h-80 flex-col overflow-hidden rounded-[28px] border border-white/80 bg-white/65 p-5 shadow-[0_24px_70px_rgba(37,99,235,0.08)] backdrop-blur-2xl sm:min-h-107.5 sm:p-7">
             <div aria-hidden="true" className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl sm:h-96 sm:w-96" />
             <div className="relative flex flex-1 items-center justify-center">
               <Image
@@ -98,7 +98,7 @@ export default function Specs() {
                 alt="VisionAI lightweight AI smart glasses in black"
                 sizes="(max-width: 1023px) 90vw, 48vw"
                 placeholder="blur"
-                className="h-auto w-full max-w-[640px] object-contain motion-safe:animate-float"
+                className="h-auto w-full max-w-160 object-contain motion-safe:animate-float"
               />
             </div>
             <figcaption className="relative grid grid-cols-3 divide-x divide-blue-100 rounded-2xl border border-white/80 bg-white/80 px-2 py-4 shadow-sm backdrop-blur-xl sm:px-5">
@@ -115,7 +115,7 @@ export default function Specs() {
             {specs.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
-                className="group min-h-[112px] rounded-[20px] border border-white/80 bg-white/75 p-3.5 shadow-[0_12px_30px_rgba(37,99,235,0.07)] backdrop-blur-2xl transition duration-300 motion-safe:hover:-translate-y-0.5 sm:flex sm:min-h-0 sm:items-center sm:gap-3 sm:p-3.5"
+                className="group min-h-28 rounded-[20px] border border-white/80 bg-white/75 p-3.5 shadow-[0_12px_30px_rgba(37,99,235,0.07)] backdrop-blur-2xl transition duration-300 motion-safe:hover:-translate-y-0.5 sm:flex sm:min-h-0 sm:items-center sm:gap-3 sm:p-3.5"
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-[0_8px_20px_rgba(37,99,235,0.10)] sm:h-10 sm:w-10">
                   <Icon aria-hidden="true" size={19} strokeWidth={1.8} />
@@ -137,7 +137,7 @@ export default function Specs() {
               key={detail.title}
               className="group overflow-hidden rounded-[28px] border border-white/80 bg-white/70 shadow-[0_20px_60px_rgba(37,99,235,0.08)] backdrop-blur-2xl"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-blue-50 to-white">
+              <div className="relative aspect-16/10 overflow-hidden bg-linear-to-br from-blue-50 to-white">
                 <Image
                   src={detail.image}
                   alt={detail.alt}
